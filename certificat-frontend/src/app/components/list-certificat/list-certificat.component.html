@@ -1,0 +1,39 @@
+<div class="certificats-container">
+  <h2>Liste des certificats</h2>
+
+  <!-- Bouton Générer seulement pour super_admin -->
+  <span *ngIf="role === 'super_admin'">
+    <button class="ajouter-button" (click)="addCertificat()">Générer Certificat TLS</button>
+  </span>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom Domaine</th>
+        <th>Généré le</th> 
+        <th>Expire le</th> 
+        <th>État</th>
+        <th>Actions</th> <!-- colonne visible pour tous -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of certificats">
+        <td>{{ c.nomDomaine }}</td>
+        <td>{{ c.dateGeneration }}</td> 
+        <td>{{ c.dateExpiration }}</td> 
+        <td>{{ c.etatCertificat }}</td>
+        <td>
+          <div class="action-buttons">
+            <!-- Bouton Renouveler et Supprimer seulement pour super_admin -->
+            <button *ngIf="role === 'super_admin'" class="btn-renouveler" (click)="modifCertificat(c.idCertificat!)">Renouvellement</button>
+            <button *ngIf="role === 'super_admin'" class="btn-supprimer" (click)="deleteCertificat(c.idCertificat!)">Supprimer</button>
+             <!-- Bouton Modifier Etat seulement pour super_admin -->
+            <button *ngIf="role === 'super_admin'" class="btn-revoque" (click)="modifierEtatCertificat(c.idCertificat!)">Revoque</button>
+            <!-- Bouton Afficher pour tous -->
+            <button class="btn-afficher" (click)="afficherCertificat(c.idCertificat!)">Afficher</button>           
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="certificat-container" *ngIf="certificat">
+  <h2>Détails du certificat</h2>
+
+  <table>
+    <tr>
+      <th>Nom de domaine</th>
+      <td>{{ certificat.nomDomaine }}</td>
+    </tr>
+    <tr>
+      <th>Autorité du certificat</th>
+      <td>{{ certificat.authoriteCertificat }}</td>
+    </tr>
+    <tr>
+      <th>Localité</th>
+      <td>{{ certificat.localite }}</td>
+    </tr>
+    <tr>
+      <th>Organisation</th>
+      <td>{{ certificat.organisation }}</td>
+    </tr>
+    <tr>
+      <th>Pays</th>
+      <td>{{ certificat.pays }}</td>
+    </tr>
+    <tr>
+      <th>Émetteur</th>
+      <td>{{ certificat.emetteur }}</td>
+    </tr>
+    <tr>
+      <th>Numéro de série</th>
+      <td>{{ certificat.numerodeserie }}</td>
+    </tr>
+    <tr>
+      <th>Contenu Certificat</th>
+      <td>{{ certificat.contenuCertificat }}</td>
+    </tr>
+  </table>
+</div>

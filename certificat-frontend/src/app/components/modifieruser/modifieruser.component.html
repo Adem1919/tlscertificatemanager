@@ -1,0 +1,27 @@
+<div class="form-container">
+  <h2 class="form-title">Modifier l'utilisateur</h2>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+    <div>
+      <label>Nom d'utilisateur :</label>
+      <input type="text" formControlName="username" />
+    </div>
+
+    <div>
+      <label>Mot de passe :</label>
+      <input type="password" formControlName="password" />
+    </div>
+
+    <div>
+      <label>Rôle :</label>
+      <select formControlName="role">
+        <option value="admin">admin</option>
+        <option value="super_admin">super_admin</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid">Mettre à jour</button>
+  </form>
+</div>

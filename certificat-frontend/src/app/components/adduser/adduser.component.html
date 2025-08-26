@@ -1,0 +1,26 @@
+<div class="form-container">
+  <h2 class="form-title">Ajouter un utilisateur</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Nom d'utilisateur :</label>
+      <input id="username" type="text" formControlName="username">
+    </div>
+
+    <div>
+      <label for="password">Mot de passe :</label>
+      <input id="password" type="password" formControlName="password">
+    </div>
+
+    <div>
+      <label for="role">Rôle :</label>
+      <select id="role" formControlName="role">
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid">Ajouter</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

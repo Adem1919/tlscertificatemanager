@@ -1,0 +1,100 @@
+/* 1. Style global */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 100px 20px 20px;
+  background-color: #f0f0f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 2. Conteneur principal */
+.utilisateurs-container {
+  width: 90%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  margin: 30px auto;
+  border: 2px solid #000000;
+}
+
+/* 3. Titre */
+h2 {
+  color: #000000;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f8;
+}
+
+/* 4. Message */
+p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 5. Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  border: 2px solid #000000;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border: 2px solid #000000; /* plus épais = plus gras */
+}
+
+
+/* 6. En-tête du tableau */
+th {
+  background-color: #ff5757;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* 7. Boutons */
+button {
+  margin: 0 8px;
+  padding: 8px 16px;
+  background-color: #ff5757;
+  color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* 8. Bouton Ajouter */
+span button {
+  margin-bottom: 20px;
+}
+
+/* Navbar reste inchangée */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* ... reste du CSS existant ... */
+}

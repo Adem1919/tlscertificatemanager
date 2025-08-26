@@ -1,0 +1,84 @@
+/* 1. Style global */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Conteneur principal */
+.certificat-container {
+  width: 95%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin: 50px auto;
+}
+
+/* 3. Titre */
+h2 {
+  text-align: center;
+  color: #000000;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f8;
+}
+
+/* 4. Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000000;
+}
+
+th, td {
+  padding: 12px;
+  border: 2px solid #000000;
+  vertical-align: top;
+}
+
+/* 5. En-têtes */
+th {
+  background-color: #6dc49d;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  width: 35%;
+  white-space: nowrap;
+}
+
+/* 6. Contenu */
+td {
+  background-color: #fafafa;
+  word-break: break-word; /* coupe le texte long */
+}
+
+/* 7. Bouton toggle */
+.btn-toggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 5px;
+}
+
+.btn-toggle:hover {
+  text-decoration: underline;
+}
+
+/* 8. Responsive */
+@media (max-width: 768px) {
+  .certificat-container {
+    padding: 20px;
+  }
+
+  table, th, td {
+    font-size: 14px;
+  }
+}

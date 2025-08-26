@@ -1,0 +1,72 @@
+/* Conteneur du formulaire */
+.form-container {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  margin: 30px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000000;
+  text-align: left;
+}
+
+/* Titre centré */
+.form-title {
+  text-align: center;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f8;
+}
+
+/* Espacement entre les champs */
+form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Inputs & selects */
+form input,
+form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #6dc49d;
+  outline: none;
+}
+
+/* Bouton submit */
+form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #6dc49d;
+  color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #5cb58b;
+  transform: scale(1.05);
+}

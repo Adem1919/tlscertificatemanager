@@ -1,0 +1,29 @@
+<div class="utilisateurs-container">
+  <h2>Liste des utilisateurs</h2>
+
+  <p *ngIf="message">{{ message }}</p>
+
+  <span *ngIf="role === 'super_admin'">
+    <button (click)="addUser()">Ajouter</button>
+  </span>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom d'utilisateur</th>
+        <th>Rôle</th>
+        <th *ngIf="role === 'super_admin'">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td *ngIf="role === 'super_admin'">
+          <button (click)="editUser(user)">Modifier</button>
+          <button (click)="deleteUser(user.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

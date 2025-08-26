@@ -1,0 +1,44 @@
+<!-- ✅ Conteneur stylisé autour du formulaire -->
+<div class="form-container">
+
+  <h2 class="form-title">Renouveler Certificat</h2>
+
+  <form [formGroup]="form" (ngSubmit)="updateCertificat()">
+    <!--
+    <div>
+      <label>ID :</label>
+      <input type="text" formControlName="idCertificat">
+    </div>
+
+    <div>
+      <label>Nom de domaine :</label>
+      <input type="text" formControlName="nomDomaine">
+    </div>
+
+    <div>
+      <label>Date de génération :</label>
+      <input type="date" formControlName="dateGeneration">
+    </div>
+
+    <div>
+      <label>Date d'expiration :</label>
+      <input type="date" formControlName="dateExpiration">
+    </div>
+
+    <div>
+      <label>Autorité :</label>
+      <input type="text" formControlName="authoriteCertificat">
+    </div>
+    -->
+
+    <div>
+      <label>État du certificat :</label>
+      <select formControlName="etatCertificat">
+        <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Renouveler Certificat TLS</button>
+  </form>
+
+</div>

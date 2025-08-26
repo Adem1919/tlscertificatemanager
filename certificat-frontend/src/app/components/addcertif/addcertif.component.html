@@ -1,0 +1,43 @@
+<!-- ✅ Ce conteneur englobe le Titre ET le Formulaire -->
+<div class="form-container">
+
+  <!-- ✅ Le titre est maintenant à l’intérieur du cadre -->
+  <h2 class="form-title">Générer Certificat</h2>
+
+  <form [formGroup]="form" (ngSubmit)="addCertificat()">
+    <div>
+      <label for="nomDomaine">Nom de domaine :</label>
+      <input id="nomDomaine" type="text" formControlName="nomDomaine">
+    </div>
+
+    <div>
+      <label for="authoriteCertificat">Autorité :</label>
+      <input id="authoriteCertificat" type="text" formControlName="authoriteCertificat">
+    </div>
+
+    <div>
+      <label for="etatCertificat">État du certificat :</label>
+      <select id="etatCertificat" formControlName="etatCertificat">
+        <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="localite">Localité :</label>
+      <input id="localite" type="text" formControlName="localite">
+    </div>
+
+    <div>
+      <label for="organisation">Organisation :</label>
+      <input id="organisation" type="text" formControlName="organisation">
+    </div>
+
+    <div>
+      <label for="pays">Pays :</label>
+      <input id="pays" type="text" formControlName="pays">
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Générer Certificat TLS</button>
+  </form>
+
+</div>
