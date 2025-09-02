@@ -92,6 +92,46 @@
   background-color: #219653;
 }
 
+/* Bouton chatbot spécifique */
+.chatbot-btn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-color: #667eea;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbot-btn:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.chatbot-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.chatbot-btn:hover::before {
+  opacity: 1;
+  animation: shine 0.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
 /* Effet actif */
 .nav-btn:active {
   transform: translateY(0);

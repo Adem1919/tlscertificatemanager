@@ -1,0 +1,111 @@
+<!-- Floating Chatbot Widget -->
+<div class="chatbot-widget">
+  <!-- Chat Button (when closed) -->
+  <div 
+    *ngIf="!isOpen" 
+    class="chat-button" 
+    (click)="toggleChat()"
+    [class.has-notification]="hasNewMessage">
+    <div class="chat-icon">
+      <span>💬</span>
+    </div>
+    <div *ngIf="hasNewMessage" class="notification-badge">1</div>
+    <div class="chat-tooltip">Assistant TLS</div>
+  </div>
+
+  <!-- Chat Window (when open) -->
+  <div *ngIf="isOpen" class="chat-window" [class.minimized]="isMinimized">
+    
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="header-left">
+        <div class="bot-avatar">
+          <span>🤖</span>
+        </div>
+        <div class="header-info">
+          <h4>Assistant TLS</h4>
+          <span class="status">
+            <span class="status-dot"></span>
+            En ligne
+          </span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="action-btn" (click)="minimizeChat()" title="Réduire">
+          <span *ngIf="!isMinimized">−</span>
+          <span *ngIf="isMinimized">□</span>
+        </button>
+        <button class="action-btn close-btn" (click)="closeChat()" title="Fermer">
+          ×
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Body (hidden when minimized) -->
+    <div *ngIf="!isMinimized" class="chat-body">
+      
+      <!-- Messages Container -->
+      <div class="messages-container" #chatContainer>
+        <div 
+          *ngFor="let message of messages" 
+          class="message"
+          [class.user]="message.isUser"
+          [class.bot]="!message.isUser">
+          
+          <div class="message-content">
+            <div *ngIf="message.isTyping" class="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div *ngIf="!message.isTyping" class="message-text">
+              {{ message.text }}
+            </div>
+            <div *ngIf="!message.isTyping" class="message-time">
+              {{ message.timestamp | date:'HH:mm' }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Suggestions (show when empty or few messages) -->
+      <div *ngIf="messages.length <= 1" class="quick-suggestions">
+        <div class="suggestions-title">Questions rapides :</div>
+        <div class="suggestion-chips">
+          <button 
+            *ngFor="let suggestion of getSuggestedQuestions().slice(0, 3)" 
+            class="suggestion-chip"
+            (click)="askSuggestedQuestion(suggestion)">
+            {{ suggestion }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="chat-input">
+        <div class="input-container">
+          <textarea 
+            [(ngModel)]="newMessage" 
+            (keypress)="onKeyPress($event)"
+            placeholder="Tapez votre message..."
+            class="message-input"
+            rows="1"
+            [disabled]="isLoading"
+            maxlength="500"></textarea>
+          
+          <button 
+            (click)="sendMessage()" 
+            class="send-button"
+            [disabled]="!newMessage.trim() || isLoading">
+            <span *ngIf="!isLoading">➤</span>
+            <span *ngIf="isLoading" class="spinner">⏳</span>
+          </button>
+        </div>
+        
+        <div class="input-footer">
+          <small>Entrée pour envoyer • <a (click)="clearChat()">Nouvelle conversation</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

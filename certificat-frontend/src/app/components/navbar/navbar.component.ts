@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ChatbotStateService } from '../../services/chatbot-state.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,7 +12,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private chatbotStateService: ChatbotStateService
+  ) {}
 
   isLoggedIn(): boolean {
     return this.authService.isAuthenticated();
@@ -42,5 +47,9 @@ export class NavbarComponent {
 
   certif(){
     this.router.navigate(['/list-certif']);
+  }
+
+  chatbot(){
+    this.chatbotStateService.toggleChatbot();
   }
 }

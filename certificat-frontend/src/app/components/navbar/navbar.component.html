@@ -19,6 +19,11 @@
       <span>List certifs</span>
     </button>
 
+    <button class="nav-btn chatbot-btn" (click)="chatbot()">
+      <span class="btn-icon">🤖</span>
+      <span>TLS Assistant</span>
+    </button>
+
     <button *ngIf="isLoggedIn()" class="nav-btn logout-btn" (click)="logout()">
       <span class="btn-icon">🚪</span>
       <span>Déconnexion</span>
